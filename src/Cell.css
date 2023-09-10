@@ -7,10 +7,13 @@
     color: #000;
 }
 
-.Cell:hover{
-    background-color: rgb(68, 65, 65);
-    color: #fff;
+@media (hover : hover){
+    .Cell:hover{
+        background-color: rgb(68, 65, 65);
+        color: #fff;
+    }
 }
+
 
 .Cell-lit{
     background-color: rgb(68, 65, 65);
