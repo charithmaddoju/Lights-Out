@@ -1,4 +1,4 @@
-import Cell from './Cell';
+import Board from './Board';
 import './App.css';
 
 //The structure of the app is as follows:
@@ -13,8 +13,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Cell isLit = {false}/>
-      <Cell isLit = {true}/>
+      <Board />
     </div>
   );
 }
