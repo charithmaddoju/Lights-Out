@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import Cell from './Cell';
 import './App.css';
+
+//The structure of the app is as follows:
+// -App
+//  -Board
+//    -Cell
+
+//App is the parent component, and it renders the Board component.
+//Board renders the Cell components, and keeps track of the game state.
+//Cell renders a single cell, and handles the click event to flip the cell.
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Cell isLit = {false}/>
+      <Cell isLit = {true}/>
     </div>
   );
 }

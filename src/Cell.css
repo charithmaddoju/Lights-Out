@@ -1,0 +1,18 @@
+.Cell{
+    width: 75px;
+    height: 75px;
+    border: 1px solid black;
+    transition: all 0.5s ease-in-out;
+    background-color: #fff;
+    color: #000;
+}
+
+.Cell:hover{
+    background-color: rgb(68, 65, 65);
+    color: #fff;
+}
+
+.Cell-lit{
+    background-color: rgb(68, 65, 65);
+    color: #fff;
+}
