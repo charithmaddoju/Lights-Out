@@ -56,7 +56,7 @@ class Board extends Component{
     render(){
         if(this.state.hasWon){
             return(
-                <h1>You WIN!!!</h1>
+                <h1 className='winner'>You WIN!!!</h1>
             )
         }
         let tblboard = [];
@@ -77,6 +77,8 @@ class Board extends Component{
         
         return(
             <div className='Board'>
+                <h1>Lights-Out</h1>
+                
                 <table>
                     <tbody>
                         {tblboard}
