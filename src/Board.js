@@ -28,9 +28,29 @@ class Board extends Component{
             }
             board.push(row);
         }
-        console.log(board);
         return board;
     }
+
+    flipCellsAround(coord){
+        const {nrows, ncols} = this.props;
+        const board = this.state.board;
+        let [x,y] = coord.split('-').map(Number)
+
+        function flipCell(x,y){
+            if(x>=0 && x<nrows && y>=0 && y<ncols){
+                board[x][y] = !board[x][y];
+            }
+        }
+
+        flipCell(x,y);
+        flipCell(x,y-1);
+        flipCell(x,y+1);
+        flipCell(x-1,y);
+        flipCell(x+1,y);
+
+        this.setState({board})
+    }
+
     render(){
         let tblboard = [];
         const board = this.state.board;
@@ -39,9 +59,13 @@ class Board extends Component{
             let row = [];
             for(let j = 0; j < ncols; j++){
                 const coord = `${i}-${j}`
-                row.push(<Cell isLit={this.state.board[i][j]}/>)
+                row.push(<Cell key={coord}
+                isLit={this.state.board[i][j]}
+                flipCellsAroundMe={
+                    () => this.flipCellsAround(coord)
+                }/>)
             }
-            tblboard.push(<tr >{row}</tr>);
+            tblboard.push(<tr key={i}>{row}</tr>);
         }
         
         return(
