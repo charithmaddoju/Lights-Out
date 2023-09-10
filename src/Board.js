@@ -47,11 +47,18 @@ class Board extends Component{
         flipCell(x,y+1);
         flipCell(x-1,y);
         flipCell(x+1,y);
+        
+        let hasWon = board.every(row => row.every(cell => !cell))
 
-        this.setState({board})
+        this.setState({hasWon,board})
     }
 
     render(){
+        if(this.state.hasWon){
+            return(
+                <h1>You WIN!!!</h1>
+            )
+        }
         let tblboard = [];
         const board = this.state.board;
         const {nrows, ncols} = this.props;
