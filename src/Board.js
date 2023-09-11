@@ -19,14 +19,21 @@ class Board extends Component{
     createBoard(){
         let board = [];
         const {nrows, ncols, chanceLightStartsOn} = this.props;
-
+        let allFalse = true;
         for(let i = 0; i < nrows; i++){
             let row = [];
             for(let j = 0; j < ncols; j++){
-                
-                row.push(Math.random() < chanceLightStartsOn)
+                let bool = Math.random() < chanceLightStartsOn;
+                if(bool === true){
+                    allFalse = false;
+                }
+                row.push(bool);
             }
             board.push(row);
+        }
+        if(allFalse){
+            console.log(allFalse)
+            board[0][0] = true;
         }
         return board;
     }
